@@ -1,0 +1,107 @@
+@charset "UTF-8";
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+}
+
+.chat_room {
+  max-width: 950px;
+  height: 560PX;
+  margin: 5PX;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.chat_header {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+
+.message_display {
+  border: 1px solid #ccc;
+  height: 420px;
+  width: 925px;
+  margin-bottom: 10px;
+  overflow-y: auto;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  resize: none;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start
+}
+
+.message_display div { 
+  display: inline-block;   
+  margin: 5px;
+  padding: 10px;
+  border-radius: 8px;
+  max-width: 70%;
+} 
+
+    
+.message-bubble.from-me{
+    background-color: #4caf50;
+     align-self: flex-end;
+}
+
+.message-bubble.from-other{
+	background-color: #e5e5ea;
+	align-self: flex-start;
+}
+  
+.from_other { 
+	background-color: #e5e5ea;
+	
+}
+
+.from_me {
+    background-color: #4caf50;
+    align-self: flex-end;
+}
+
+  
+  
+.message_input { 
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.message_input input[type="text"] { 
+  flex: 1;
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+  outline: none;
+}
+
+/* CSS 선택자를 사용하여 해당 ID에 스타일을 적용 */
+#mg_button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  background-color: #4CAF50;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#mg_button:hover {
+  background-color: rgba(76, 175, 80, 0.9);
+}

@@ -1,0 +1,60 @@
+@charset "EUC-KR";
+
+
+/* 로그인 폼 스타일 */
+.login_from {
+    width: 300px;
+    margin: 150px auto;
+    text-align: center;
+    border: 2px solid #7EDA93;
+    padding: 80px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login_from form {
+    margin-bottom: 20px;
+}
+
+.login_from input[type="text"],
+.login_from input[type="password"],
+.login_from .login_btn {
+    width: calc(100% - 24px); /* 아이디 입력 칸과 버튼의 너비 조정 */
+    padding: 12px; /* 입력 칸과 버튼의 패딩 수정 */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 10px 0; /* 상하 여백 추가 */
+    box-sizing: border-box; /* 요소의 크기 계산에 패딩과 테두리를 포함시킵니다. */
+}
+
+.login_from .login_btn {
+    background-color: #7EDA93;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login_from .login_btn:hover {
+    background-color: #48A870;
+}
+
+/* 로그인 링크들 스타일 */
+.login_links {
+    display: flex; /* 가로 정렬을 위해 flex 사용 */
+    justify-content: space-around; /* 링크들을 여백을 갖도록 공간 분배 */
+}
+
+.login_links a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.login_links a:hover {
+    color: #7EDA93;
+}
+/*---*/

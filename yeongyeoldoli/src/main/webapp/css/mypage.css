@@ -1,0 +1,57 @@
+@charset "EUC-KR";
+
+.mypage_wrap {
+    display: flex;
+    width: 100%;
+    height: 90vh;  /*/뷰포트 높이의 100% */
+    margin-top: 2%;
+}
+
+/* Reset 기본 스타일 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body 스타일 */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        /* .wrap 스타일 */
+/*        .wrap {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }*/
+
+        /* .mypage_wrap 스타일 */
+        .mypage_wrap {
+            display: flex;
+            width: 75vw;
+            height: 80vh;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        /* .mypage_wrap iframe 스타일 */
+        .mypage_wrap iframe {
+            border: none;
+        }
+
+        /* 각 iframe 스타일 */
+        .mypage_wrap iframe:nth-child(1) {
+            flex: 1;
+            height: 100%;
+            max-width: 20%;
+        }
+
+        .mypage_wrap iframe:nth-child(2) {
+            flex: 3;
+            height: 100%;
+            max-width: 80%;
+        }

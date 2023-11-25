@@ -1,0 +1,229 @@
+@charset "EUC-KR";
+@import url('https://fonts.googleapis.com/css2?family=Hi+Melody&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap');
+
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f3f3f3; /* 부드러운 배경색 */
+}
+
+.my_header{
+	display: flex;
+	justify-content: flex-end;
+}
+
+.my_logo_header {
+    align-items: center;
+    padding: 30px 0 ;
+    margin-right: auto;
+}
+
+.my_logo_header a {
+    text-decoration: none;
+    display: inline-flex; /* inline-flex로 변경하여 내용의 가로 정렬 */
+    align-items: center;
+    font-weight: bold;
+    font-size: 48px; /* 폰트 사이즈 축소 */
+    font-family: 'Hi Melody', sans-serif;
+    transition: color 0.3s ease; /* 부드러운 전환 효과 추가 */
+}
+
+.my_logo_header a:hover {
+    color: #7EDA93; /* 호버 시 색상 변경 */
+}
+
+
+.hd_ul {
+    list-style: none;
+    margin: 60px 0 0; /* 위쪽 마진 축소 */
+    padding: 0;
+}
+
+.hd_ul li {
+    margin-bottom: 15px; /* 리스트 아이템 사이의 간격 조정 */
+    font-size: 18px; /* 폰트 사이즈 설정 */
+    color: #444; /* 글자색 조정 */
+}
+
+/* 리스트 아이템 hover 시 효과 */
+.hd_ul li:hover {
+    color: #7EDA93; /* 호버 시 글자색 변경 */
+    transition: color 0.3s ease; /* 부드러운 전환 효과 추가 */
+}
+
+
+ li {
+    display: inline;
+    margin-right: 10px;
+}
+
+ a {
+    text-decoration: none;
+    color:inherit;
+    font-weight: bold;
+}
+
+
+.wrap {
+    position: relative;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+    max-width: 1240px;
+}
+
+
+
+.menu_bar {
+    background-color: #7EDA93;
+    padding: 15px 20px; /* 좀 더 여유롭게 패딩 조절 */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 그림자 효과 추가 */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 10px; /* 푸터 내부 여백 설정 */
+    text-align: left; /* 푸터 텍스트 가운데 정렬 */
+    border-top: 1px solid #ccc; /* 1px 두께의 회색 선 추가 */
+    font-size: 12px;
+}
+
+/* 초기화 스타일 */
+.menu_bar,
+.menu_bar ul,
+.menu_bar li,
+.menu_bar a,
+.dropdown-content a {
+    font-family: 'Nanum Gothic', sans-serif;
+    text-decoration: none;
+    color: black;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+/* 메인 메뉴 스타일 */
+.menu_bar li {
+    display: inline-block;
+    padding: 20px; /* 좀 더 넓은 패딩 추가 */
+    position: relative;
+    transition: all 0.3s ease;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.menu_bar a {
+    font-weight: bold;
+    display: block;
+    padding: 12px 16px;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.menu_bar li:hover > a {
+    border-bottom-color: #000;
+}
+
+/* 드롭다운 메뉴 스타일 */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    top: 100%;
+    width: 150px;
+    min-width: 150px;
+}
+
+.dropdown-content a {
+    padding: 12px 16px;
+    display: block;
+    text-decoration: none;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    line-height: 1.5;
+    font-size: 14px;
+    color: #333; /* 드롭다운 링크 색상 변경 */
+}
+
+.dropdown-content a:hover {
+    background-color: #eee; /* 호버 시 배경색 변경 */
+    color: #7EDA93; /* 호버 시 텍스트 색상 변경 */
+}
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+body > header {
+    flex: 0 0 auto;
+}
+
+body > main {
+    flex: 1;
+    overflow-y: auto; /* 스크롤이 필요한 경우에만 스크롤 표시 */
+    min-height: 0;
+}
+
+body > footer {
+    flex: 0 0 auto;
+    position: relative;
+    bottom: 0;
+    background-color: white; /* 푸터가 메인 내용 위에 나타날 때 메인 내용을 가릴 수 있기 때문에 푸터의 배경색을 메인 내용과 동일하게 설정 */
+}
+
+
+.view_main{
+	border: 1px solid #7EDA93;
+	border-radius: 10px;
+	margin: 60px 0;
+	padding: 10px;
+}
+
+/* footer 전체 스타일 */
+footer {
+    background-color: #f7f7f7;
+    padding: 20px 0;
+    color: #333;
+    text-align: center;
+}
+
+/* wrap 클래스 스타일 */
+.wrap_ft {
+    max-width: 1200px;
+    margin: 0 auto;
+    font-size: 14px;
+}
+
+/* 주소 스타일 */
+.address {
+    margin-bottom: 10px;
+}
+
+/* 접촉 정보 스타일 */
+.contact {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* 저작권 정보 스타일 */
+.copyright {
+    font-size: 12px;
+    color: #666;
+}
+
+

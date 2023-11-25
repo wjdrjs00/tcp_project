@@ -1,0 +1,92 @@
+@charset "EUC-KR";
+
+/* main 태그의 스타일 */
+.register-form {
+  width: 300px;
+  margin: 80px auto;
+  text-align: center;
+  border: 2px solid #7EDA93;
+  padding: 40px;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 회원가입 제목 스타일 */
+.register-form h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+.form-input {
+  width: calc(100% - 12px);
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+/* 회원가입 버튼 스타일 */
+.btn {
+  width: calc(100% - 12px); /* 입력 필드와 같은 너비 */
+  background-color: #7EDA93;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.register-form button:hover {
+  background-color: #48A870;
+}
+
+/* 우편번호 입력 */
+#postcode {
+  width: calc(50% - 6px); /* 레이아웃에 맞게 너비 조정 */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+/* 우편번호 검색 버튼 */
+#postcodeButton {
+  width: calc(50% - 6px); /* 레이아웃에 맞게 너비 조정 */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  background-color: #7EDA93;
+  color: white;
+}
+
+#postcodeButton:hover {
+  background-color: #48A870;
+}
+
+/* 다른 주소 관련 입력 필드들 */
+#roadAddress,
+#jibunAddress,
+#detailAddress,
+#extraAddress {
+  width: calc(100% - 12px);
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+
+/* 라디오 입력 */
+input[type="radio"] {
+  margin-right: 5px; /* 라디오 버튼과 텍스트 사이의 간격 설정 */
+}
+

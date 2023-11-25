@@ -1,0 +1,50 @@
+/* styles.css */
+
+/* .wrap_cl 스타일 */
+
+/* .chat_ct 스타일 */
+.chat_ct {
+    width: 100%; /* 부모 요소에 맞게 조절할 수 있어요 */
+    margin: 0;
+}
+
+/* .list 스타일 */
+.list {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+.list h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    margin-top: 0px;
+}
+
+/* .chat-room-list 스타일 */
+.chat-room-list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.room-item {
+    margin-bottom: 10px;
+}
+
+.room-link {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.room-link:hover {
+    background-color: #e6e6e6;
+}
+
+.room-name {
+    font-weight: bold;
+}

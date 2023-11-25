@@ -1,0 +1,138 @@
+@charset "EUC-KR";
+
+.cm_main {
+  border: none;
+  border-radius: 20px;
+  margin: 40px 0;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* .cm_header와 .cm_body의 배경색과 폰트 스타일 변경 */
+.cm_header {
+  padding: 20px 40px;
+  background-color: #7EDA93; 
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+/* .board_search 내부 요소들 스타일 수정 */
+.board_search {
+  padding: 20px 40px;
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.board_search form {
+  display: flex;
+  align-items: center;
+}
+
+.board_search select,
+.board_search input[type="text"] {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.board_search button,
+.board_search a {
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.board_search button:hover,
+.board_search a:hover {
+  background-color: #48A870; /* 호버 시 색상 변경 */
+}
+
+
+.cm_body {
+  padding: 50px 40px; /* 좀 더 가벼운 패딩 */
+  background-color: #f9f9f9; 
+}
+
+/* 테이블 스타일 수정 */
+.free_table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 20px; /* 좀 더 여유로운 간격 */
+}
+
+.free_table th,
+.free_table td {
+  text-align: left; /* 콘텐츠 왼쪽 정렬 */
+  padding: 15px; /* 간격 조절 */
+}
+
+.free_table th:first-child,
+.free_table td:first-child {
+  border-left: 2px solid transparent; /* 첫 번째 열의 왼쪽 테두리 제거 */
+}
+
+.free_table th:last-child,
+.free_table td:last-child {
+  border-right: 2px solid transparent; /* 마지막 열의 오른쪽 테두리 제거 */
+}
+
+.free_table th, .free_table td {
+  border-top: none;
+  border-bottom: 1px solid #ddd; /* 선 추가 */
+}
+
+.free_table th {
+  background-color: #f5f5f5; /* 헤더 색상 */
+}
+
+/* .next_btn 스타일 수정 */
+.next_btn {
+  text-align: center;
+  padding: 20px 40px;
+  margin-top: 20px;
+}
+
+.next_btn ul {
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.next_btn ul li {
+  list-style: none;
+  margin: 0 10px;
+}
+
+.next_btn ul li a {
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: 1px solid #7EDA93;
+  color: #7EDA93;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.next_btn ul li a:hover {
+  background-color: #7EDA93;
+  color: white;
+}
+
+.bd_create a:not(:hover),
+.board_search a:not(:hover),
+.board_search button:not(:hover) {
+  background-color: black; /* 마우스 호버 전의 배경 색상 */
+}
+
+
+.bd_create{
+	text-align: right;
+}
+
