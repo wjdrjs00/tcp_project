@@ -29,10 +29,10 @@
     </style>
 </head>
 <body>
-<a  target="view">주소등록/및 수정</a><p>
-<a  target="view">회원정보 수정/탈퇴</a><p>
 <a href="myBbsList.jsp" target="view">내 게시글 목록</a><p>
 <a href="chatList.jsp" target="view">내 문의 목록</a><p>
+<a  target="view">주소등록/및 수정</a><p>
+<a href="updateProfile.jsp" target="view">회원정보 수정/탈퇴</a><p>
 
 </body>
 </html>
