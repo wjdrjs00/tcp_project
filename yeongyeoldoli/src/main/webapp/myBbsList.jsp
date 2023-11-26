@@ -36,17 +36,22 @@
                 <h3><%= session.getAttribute("userName") %>님의 게시글목록</h3>
                 <ul class="bbs-list">
                     <% 
-                        // 가져온 게시물 목록을 출력합니다.
                         for (BbsDTO post : userPosts) {
                     %>
-                    <li><%= post.getBbsTitle() %></li>
-                    <!-- 게시물의 제목을 출력하고 싶은 부분에 post.getBbsTitle() 대신 원하는 정보를 넣어주세요. -->
+                    <!-- 각 게시글에 링크 추가 -->
+                    <li>
+                        <!-- JavaScript를 사용하여 부모 창으로 이동하는 링크 -->
+                        <a href="#" onclick="parent.window.location.href='boardView.jsp?bbsIndex=<%= post.getBbsIndex() %>';">
+                            <%= post.getBbsTitle() %>
+                        </a>
+                    </li>
                     <% } %>
                 </ul>
             </div>
         </div>
     </div>
 </main>
+
 
 
 
