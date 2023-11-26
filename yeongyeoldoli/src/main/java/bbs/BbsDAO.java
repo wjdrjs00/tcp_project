@@ -189,24 +189,31 @@ public class BbsDAO {
 	
 	
 	public int delete(int bbsIndex) {
-		String SQL = "update bbs set bbsAvailable = 0 where bbsIndex = ?";
-		Connection conn = null;
-		PreparedStatement pstmt =null;
-		ResultSet rs = null;
-		try {
-			conn = DatabaseUtil.getConnection();
-			pstmt = conn.prepareStatement(SQL);
-			pstmt.setInt(1, bbsIndex);
-			return pstmt.executeUpdate();
-		}catch (SQLException e) {
-			e.printStackTrace();
-		}finally {
-			try {if(conn != null) conn.close();} catch (Exception e) {e.printStackTrace(); }
-			try {if(pstmt != null) pstmt.close();} catch (Exception e) {e.printStackTrace(); }
-			try {if(rs != null) rs.close();} catch (Exception e) {e.printStackTrace(); }
+		   String SQL = "UPDATE bbs SET bbsAvailable = 0 WHERE bbsIndex = ?";
+		    Connection conn = null;
+		    PreparedStatement pstmt = null;
+
+		    try {
+		        conn = DatabaseUtil.getConnection();
+		        pstmt = conn.prepareStatement(SQL);
+		        pstmt.setInt(1, bbsIndex);
+		        int rowsAffected = pstmt.executeUpdate();
+
+		        if (rowsAffected > 0) {
+		            // 삭제가 성공한 경우
+		            return rowsAffected;
+		        } else {
+		            // 삭제에 실패한 경우
+		            return -1;
+		        }
+		    } catch (SQLException e) {
+		        e.printStackTrace();
+		    } finally {
+				try {if(conn != null) conn.close();} catch (Exception e) {e.printStackTrace(); }
+				try {if(pstmt != null) pstmt.close();} catch (Exception e) {e.printStackTrace(); }
+			}
+		    return -1; // 데이터베이스 오류
 		}
-		return -1; //데이터베이스 오류
-	}
 	
 	
 	public ArrayList<BbsDTO> getUserPosts(String userID) {
