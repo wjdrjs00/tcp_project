@@ -104,6 +104,12 @@
                 </p>
                 <button class="contact-button" onclick="redirectToBoard()">게시글목록</button>
                 <button class="contact-button" onclick="openChatWindow()">문의하기</button>
+					<% if (isLoggedIn && userID.equals(bbsDTO.getUserID())) { %>
+					    <form action="bbsDeleteAction.jsp" method="post" id="deleteForm">
+					        <input type="hidden" name="bbsIndex" value="<%= bbsDTO.getBbsIndex() %>">
+					        <button type="button" class="contact-button" onclick="deletePost()">게시글 삭제</button>
+					    </form>
+					<% } %>
             </div>
         </div>
     </div>
@@ -163,6 +169,12 @@ function openChatWindow() {
     // chatList.jsp로 이동하면서 postUserID를 파라미터로 전달
     window.location.href = 'chatList.jsp?postUserID=' + postUserID;
 }
+
+function deletePost() {
+    if (confirm("게시글을 삭제하시겠습니까?")) {
+        document.getElementById("deleteForm").submit();
+    }
+}
 </script>
 
 
@@ -171,5 +183,7 @@ function redirectToBoard() {
     window.location.href = 'board.jsp';
 }
 </script>
+
+
 </body>
 </html>
