@@ -1,6 +1,6 @@
 package user;
 
-import java.sql.Connection;      
+import java.sql.Connection;       
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -72,7 +72,7 @@ public class UserDAO {
 	
 	
     public UserDTO getUserInfo(String userID) {
-    	String SQL = "SELECT userName,userType FROM user WHERE userID = ?";
+    	String SQL = "SELECT userName,userPassword,userEmail,userType FROM user WHERE userID = ?";
     	Connection conn = null;
 		PreparedStatement pstmt =null;
 		ResultSet rs = null;
@@ -87,8 +87,12 @@ public class UserDAO {
             if (rs.next()) {
                 // 사용자 이름을 가져와 UserDTO 객체에 설정
                 String userName = rs.getString("userName");
+                String userPassword = rs.getString("userPassword");
+                String userEmail = rs.getString("userEmail");
                 String userType = rs.getString("userType");
                 user.setUserName(userName);
+                user.setUserPassword(userPassword);
+                user.setUserEmail(userEmail);
                 user.setUserType(userType);
             }
         } catch (SQLException e) {
@@ -106,5 +110,74 @@ public class UserDAO {
         }
         return user; // 사용자 정보를 담고 있는 UserDTO 객체 반환
     }
+    
+    public int updateUser(UserDTO user) {
+        String SQL = "UPDATE user SET userPassword = ?, userEmail = ? WHERE userID = ?";
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        int result = 0;
 
+        try {
+            conn = DatabaseUtil.getConnection();
+            pstmt = conn.prepareStatement(SQL);
+            pstmt.setString(1, user.getUserPassword());
+            pstmt.setString(2, user.getUserEmail());
+            pstmt.setString(3, user.getUserID());
+
+            result = pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            // 리소스 해제 코드는 생략되어 있습니다.
+        }
+        return result;
+    }
+
+    
+    public boolean isEmailAlreadyInUse(String userEmail) {
+        String SQL = "SELECT COUNT(*) FROM user WHERE userEmail = ?";
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
+        try {
+            conn = DatabaseUtil.getConnection();
+            pstmt = conn.prepareStatement(SQL);
+            pstmt.setString(1, userEmail);
+            rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                int count = rs.getInt(1);
+                return count > 0; // 이미 해당 이메일이 존재하면 true 반환
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            // 리소스 해제 코드는 생략
+        }
+        return false; // 에러 발생 시 또는 이메일이 존재하지 않는 경우 false 반환
+    }
+
+    public boolean deleteUser(String userID) {
+        String SQL = "DELETE FROM user WHERE userID = ?";
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        
+        try {
+            conn = DatabaseUtil.getConnection();
+            pstmt = conn.prepareStatement(SQL);
+            pstmt.setString(1, userID);
+            
+            int result = pstmt.executeUpdate();
+            return result > 0; // 삭제가 성공하면 true 반환
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            // 리소스 해제
+            // ...
+        }
+        
+        return false; // 삭제 실패 시 false 반환
+    }
+    
 }
