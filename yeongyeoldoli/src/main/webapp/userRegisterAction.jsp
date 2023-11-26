@@ -71,6 +71,10 @@
 		return;
 	} else {
 		 session.setAttribute("userID", userID);
+		 session.setAttribute("userType", userType); 
+	     session.setAttribute("userEmail", userEmail);
+	     session.setAttribute("userName", userName);
+	     session.setAttribute("userPassword", userPassword);
 		    out.println("<script>");
 		    out.println("alert('회원가입이 완료되었습니다. 홈페이지로 이동합니다.');");
 		    out.println("location.href = 'index.jsp';"); // 홈페이지 URL로 수정해주세요.
