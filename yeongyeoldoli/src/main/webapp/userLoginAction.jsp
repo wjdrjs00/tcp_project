@@ -22,8 +22,13 @@
 		UserDTO user = userDAO.getUserInfo(userID);
         String userName = user.getUserName();
         String userType = user.getUserType();
+        String userEmail = user.getUserEmail();
         session.setAttribute("userName", userName); // 세션에 사용자 이름 저장
         session.setAttribute("userType", userType); 
+        session.setAttribute("userEmail", userEmail); 
+        
+        HttpSession sessionToUpdate = request.getSession();
+        sessionToUpdate.setAttribute("userID", userID);
 
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
