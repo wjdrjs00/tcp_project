@@ -39,11 +39,6 @@
     int chatRoomIDInt = Integer.parseInt(chatRoomID);
     ArrayList<ChatMessageDTO> chatHistory = chatMessageDAO.getChatHistory(chatRoomIDInt);
     
-    
-/*     System.out.println("userID(현재로그인 유저 ): " + userID);
-    System.out.println("chatRoomID(넘겨받은 채팅방 index ): " + chatRoomID);
-    System.out.println("chatRoomIDInt(넘겨받은 채팅방 index 정수로 변환 ): " + chatRoomIDInt);
-    System.out.println("otherUserID(채팅방중 현재 로그인중이 아닌 다른 유저 ): " + otherUserID); */
 %>
 
 <!DOCTYPE html>
@@ -58,14 +53,10 @@
 
 <div class="chat_room">
     <div class="chat_header">
+        <button onclick="goBack()" class="previous_page_button">이전</button>
         <%= otherUserID %>님과의 문의방
     </div>
 
-    <%-- <textarea class="message_display" id="messageDisplay" rows="10" cols="50" readonly>
-    <% for (ChatMessageDTO message : chatHistory) { %>
-        <%= message.getUserID() %> : <%= message.getMessageText() %>\n
-    <% } %>
-	</textarea> --%>
 	
 	<div class="message_display" id="messageDisplay" style="overflow-y: scroll; max-height: 430px;">
  	<% for (ChatMessageDTO message : chatHistory) { %>
@@ -94,9 +85,6 @@
     var otherUserID = '<%= otherUserID %>'; // 문자열은 따옴표로 감싸줘야 합니다.
     
     var textarea = document.getElementById("messageDisplay");
-    //var webSocket = new WebSocket('ws://localhost:8080/yeongyeoldoli/chat/' + chatRoomID);
-//    var webSocket = new WebSocket('ws://localhost:8080/yeongyeoldoli/chat/' + chatRoomID+ "&userID=" + userID);
-//    var webSocket = new WebSocket('ws://localhost:8080/yeongyeoldoli/chat/' + chatRoomID + '?userID=' + userID);
 var webSocket = new WebSocket('ws://localhost:8080/yeongyeoldoli/chat/' + chatRoomID + '/' + userID);
     
     var inputMessage = document.getElementById('messageInput');
@@ -115,7 +103,6 @@ var webSocket = new WebSocket('ws://localhost:8080/yeongyeoldoli/chat/' + chatRo
     };
     xhr.send();
 
-    // Display Chat History
     function displayChatHistory(chatHistory) {
         chatHistory.forEach(function (message) {
             var messageElement = document.createElement('div');
@@ -147,14 +134,13 @@ var webSocket = new WebSocket('ws://localhost:8080/yeongyeoldoli/chat/' + chatRo
             messageDisplay.scrollTop = messageDisplay.scrollHeight;
         }
     }
-     
     function onOpen(event) {
     }
     function onError(event) {
       alert(event.data);
     }
     
- // 보낸 메시지에 클래스를 추가하는 부분
+ 	// 보낸 메시지에 클래스를 추가하는 부분
     function sendMessage() {
         var messageText = inputMessage.value.trim();
         if (messageText !== '') {
@@ -179,6 +165,12 @@ var webSocket = new WebSocket('ws://localhost:8080/yeongyeoldoli/chat/' + chatRo
             sendMessage();
         }
     });
+</script>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
 </script>
 </body>
 </html>
