@@ -54,7 +54,8 @@
 <div class="chat_room">
     <div class="chat_header">
         <button onclick="goBack()" class="previous_page_button">이전</button>
-        <%= otherUserID %>님과의 문의방
+        <div class="suser"><%= otherUserID %>님과의 문의방</div>
+        <button onclick="#" class="delete_room_button">삭제</button>
     </div>
 
 	
@@ -125,7 +126,7 @@ var webSocket = new WebSocket('ws://localhost:8080/yeongyeoldoli/chat/' + chatRo
         var messageText = event.data.trim();
         if (messageText !== '') {
             var messageElement = document.createElement('div');
-            messageElement.textContent = messageText;
+            messageElement.textContent = userID + ' : ' + messageText;
 
             // 받은 메시지에 클래스 추가
             messageElement.classList.add('from_other');
